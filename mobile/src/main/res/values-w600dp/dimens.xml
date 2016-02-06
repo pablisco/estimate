@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="card_width">125dp</dimen>
+    <dimen name="card_font_size">60dp</dimen>
+    <dimen name="deck_padding">16dp</dimen>
+</resources>

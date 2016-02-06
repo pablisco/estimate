@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="standard">
+        <item>"0"</item>
+        <item>\u00BD</item>
+        <item>"1"</item>
+        <item>"2"</item>
+        <item>"3"</item>
+        <item>"5"</item>
+        <item>"8"</item>
+        <item>"13"</item>
+        <item>"20"</item>
+        <item>"40"</item>
+        <item>"100"</item>
+        <item>\?</item>
+        <item>\u221E</item>
+        <item>\u2615</item>
+    </array>
+
+</resources>
