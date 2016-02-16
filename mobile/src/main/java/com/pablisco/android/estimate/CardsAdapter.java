@@ -1,6 +1,7 @@
 package com.pablisco.android.estimate;
 
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.annotation.ArrayRes;
 import android.support.v7.widget.RecyclerView;
@@ -45,10 +46,19 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.ViewHolder> 
         public ViewHolder(View itemView) {
             super(itemView);
             dataBinding = DataBindingUtil.bind(itemView);
+            dataBinding.setViewHolder(this);
         }
 
         public CardViewBinding getDataBinding() {
             return dataBinding;
         }
+
+        public void onCardSelected(View view) {
+            Context context = dataBinding.getRoot().getContext();
+            Intent intent = new Intent(context, ResultActivity.class);
+            intent.putExtra(ResultActivity.KEY_ESTIMATION, dataBinding.getCardText());
+            context.startActivity(intent);
+        }
+
     }
 }

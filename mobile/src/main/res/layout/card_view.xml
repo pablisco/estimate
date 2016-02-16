@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="viewHolder"
+            type="com.pablisco.android.estimate.CardsAdapter.ViewHolder" />
+
+        <variable
             name="cardText"
             type="java.lang.CharSequence"/>
     </data>
@@ -17,6 +21,7 @@
         android:padding="0dp"
         android:layout_gravity="center"
         android:text="@{cardText}"
+        android:onClick="@{viewHolder.onCardSelected}"
         android:textSize="@dimen/card_font_size"
         />
 
