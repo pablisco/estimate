@@ -5,9 +5,15 @@
 
     <data>
 
+        <import type="android.view.View"/>
+
         <variable
             name="estimation"
             type="CharSequence"/>
+
+        <variable
+            name="valueVisible"
+            type="boolean" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout
@@ -15,13 +21,29 @@
         android:layout_height="match_parent"
         tools:context="com.pablisco.android.estimate.ResultActivity">
 
-        <TextView
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:textSize="150dp"
-            android:text="@{estimation}"
-            />
+            android:onClick="reveal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Tap to reveal"
+                android:visibility="@{valueVisible ? View.GONE : View.VISIBLE}"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="150dp"
+                android:text="@{estimation}"
+                android:visibility="@{valueVisible ? View.VISIBLE : View.GONE}"
+                />
+
+        </FrameLayout>
 
     </android.support.design.widget.CoordinatorLayout>
 
