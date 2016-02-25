@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 
+def isTravis = "true".equals(System.getenv("TRAVIS"))
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
@@ -21,6 +23,11 @@ android {
 
     dataBinding {
         enabled = true
+    }
+
+    lintOptions {
+        textReport isTravis
+        textOutput 'stdout'
     }
 }
 
