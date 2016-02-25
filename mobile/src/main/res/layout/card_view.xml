@@ -18,7 +18,6 @@
         android:layout_gravity="center"
         android:text="@{cardText}"
         android:textSize="@dimen/card_font_size"
-        tools:ignore="SpUsage"
         />
 
 </layout>
