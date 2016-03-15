@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="Tap to reveal"
+                android:text="@string/tap_to_reveal"
                 android:visibility="@{valueVisible ? View.GONE : View.VISIBLE}"
                 />
 

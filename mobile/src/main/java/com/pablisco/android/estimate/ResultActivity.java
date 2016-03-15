@@ -26,6 +26,7 @@ public class ResultActivity extends AppCompatActivity {
         }
     }
 
+    @SuppressWarnings("UnusedParameters")
     public void reveal(View view) {
         if (!binding.getValueVisible()) {
             binding.setValueVisible(true);

@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         int spanCount = getResources().getInteger(R.integer.deck_column_count);
         GridLayoutManager layoutManager = new GridLayoutManager(this, spanCount);
         binding.cardsView.setLayoutManager(layoutManager);
-        binding.cardsView.setAdapter(new CardsAdapter(this, R.array.standard));
+        binding.cardsView.setAdapter(new CardsAdapter(getResources().getTextArray(R.array.standard)));
     }
 
 }

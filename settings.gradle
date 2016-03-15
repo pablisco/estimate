@@ -1,1 +1,1 @@
-include ':mobile', ':test-utils'
+include ':mobile', ':test-utils', ':common'
