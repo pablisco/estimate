@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'groovyx.grooid.groovy-android'
 
 def isTravis = "true" == System.getenv("TRAVIS")
 
@@ -37,8 +38,16 @@ android {
     }
 }
 
+androidGroovy {
+    options {
+        configure(groovyOptions) {
+            javaAnnotationProcessing = true
+        }
+    }
+    skipJavaC = true
+}
+
 dependencies {
-    //    compile 'com.google.android.gms:play-services:8.1.0'
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-core:1.10.19'
     testCompile('com.squareup.assertj:assertj-android:1.1.0') {
@@ -49,7 +58,7 @@ dependencies {
     }
     testCompile project(':test-utils')
 
-    testCompile 'org.codehaus.groovy:groovy-all:2.4.3'
+    testCompile 'org.codehaus.groovy:groovy-all:2.4.6'
     testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
     testCompile 'cglib:cglib-nodep:3.1'
     testCompile 'org.objenesis:objenesis:2.2'
