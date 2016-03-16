@@ -39,7 +39,7 @@ public class ShakeDetector implements SensorEventListener {
             lastValues[2] = event.values[2];
 
             if (null != onShakeListener) {
-                onShakeListener.onShake(Math.abs(speed));
+                onShakeListener.onShake((float) Math.abs(speed));
             }
         });
     }
