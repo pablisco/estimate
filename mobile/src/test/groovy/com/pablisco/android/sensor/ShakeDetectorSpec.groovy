@@ -19,44 +19,31 @@ class ShakeDetectorSpec extends Specification {
     def shakeDetector = new ShakeDetector(sensorManager, debounce)
 
     def "should register to sensor manager onStart"() {
-        setup:
-        def accelerometer = Mock(Sensor)
-        sensorManager.getDefaultSensor(TYPE_ACCELEROMETER) >> accelerometer
-        when:
-        shakeDetector.start()
-        then:
-        1 * sensorManager.registerListener(shakeDetector, accelerometer, SENSOR_DELAY_GAME)
+        setup: sensorManager.getDefaultSensor(TYPE_ACCELEROMETER) >> accelerometer
+        when: shakeDetector.start()
+        then: 1 * sensorManager.registerListener(shakeDetector, accelerometer, SENSOR_DELAY_GAME)
+        where: accelerometer << [Mock(Sensor)]
     }
 
     def "should unregister from sensor manager onStop"() {
-        when:
-        shakeDetector.stop()
-        then:
-        1 * sensorManager.unregisterListener(shakeDetector);
+        when: shakeDetector.stop()
+        then: 1 * sensorManager.unregisterListener(shakeDetector);
     }
 
     def "should do nothing on accuracy changed"() {
-        when:
-        shakeDetector.onAccuracyChanged(Mock(Sensor), 0)
-        then:
-        0 * _
+        when: shakeDetector.onAccuracyChanged(Mock(Sensor), 0)
+        then: { 0 * _ }
     }
 
     @Unroll
     def "should report shake #events"() {
-        setup:
-        def shakeListener = Mock(OnShakeListener)
-        when:
-        shakeDetector.onShake(shakeListener)
-        events.each {
-            def event = Mock(SensorEvent)
-            event.values = it
-            shakeDetector.onSensorChanged(event);
+        setup: def shakeListener = Mock(OnShakeListener)
+        when: shakeDetector.onShake(shakeListener)
+        and: events.each { v ->
+            shakeDetector.onSensorChanged(Mock(SensorEvent).with { values = v; it })
         }
-        then:
-        1 * shakeListener.onShake({ (it - speed).abs() < 10 })
-        where:
-        events                     | speed
+        then: 1 * shakeListener.onShake({ (it - speed).abs() < 10 })
+        where: events | speed
         [[0, 0, 0], [800, 0, 0]]   | 800
         [[0, 0, 0], [0, 800, 0]]   | 800
         [[0, 0, 0], [0, 0, 800]]   | 800
