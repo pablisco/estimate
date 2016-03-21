@@ -22,7 +22,7 @@ class ShakeDetectorSpec extends Specification {
         setup: sensorManager.getDefaultSensor(TYPE_ACCELEROMETER) >> accelerometer
         when: shakeDetector.start()
         then: 1 * sensorManager.registerListener(shakeDetector, accelerometer, SENSOR_DELAY_GAME)
-        where: accelerometer << [Mock(Sensor)]
+        where: accelerometer = Mock(Sensor)
     }
 
     def "should unregister from sensor manager onStop"() {
