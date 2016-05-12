@@ -1,4 +1,8 @@
 apply plugin: 'java'
+apply plugin: 'groovy'
+
+targetCompatibility = '1.8'
+sourceCompatibility = '1.8'
 
 dependencies {
     compile 'junit:junit:4.12'

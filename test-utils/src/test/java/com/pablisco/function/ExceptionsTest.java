@@ -55,6 +55,7 @@ public class ExceptionsTest {
         throw new CheckedException();
     }
 
+    @SuppressWarnings("EmptyMethod")
     private void doNotFail() throws Exception {
     }
 
@@ -62,6 +63,7 @@ public class ExceptionsTest {
         throw new CheckedException();
     }
 
+    @SuppressWarnings("SameReturnValue")
     private String getNotFail() throws Exception {
         return "test";
     }

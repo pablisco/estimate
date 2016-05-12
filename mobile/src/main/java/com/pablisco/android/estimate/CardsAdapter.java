@@ -2,13 +2,11 @@ package com.pablisco.android.estimate;
 
 import android.content.Context;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.pablisco.android.estimate.databinding.CardViewBinding;
+import android.widget.TextView;
 
 public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.ViewHolder> {
 
@@ -26,7 +24,7 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.getDataBinding().setCardText(items[position]);
+        holder.setCardText(items[position]);
     }
 
     @Override
@@ -36,25 +34,23 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private CardViewBinding dataBinding;
+        private CharSequence cardText;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            dataBinding = DataBindingUtil.bind(itemView);
-            dataBinding.setViewHolder(this);
-        }
-
-        public CardViewBinding getDataBinding() {
-            return dataBinding;
         }
 
         @SuppressWarnings({"UnusedParameters", "unused"})
         public void onCardSelected(View view) {
-            Context context = dataBinding.getRoot().getContext();
+            Context context = view.getContext();
             Intent intent = new Intent(context, ResultActivity.class);
-            intent.putExtra(ResultActivity.KEY_ESTIMATION, dataBinding.getCardText());
+            intent.putExtra(ResultActivity.KEY_ESTIMATION, cardText);
             context.startActivity(intent);
         }
 
+        public void setCardText(CharSequence cardText) {
+            this.cardText = cardText;
+            ((TextView)itemView).setText(cardText);
+        }
     }
 }

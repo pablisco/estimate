@@ -9,6 +9,7 @@ public class Debounce {
     private long lastExecution = 0;
     private long timeSinceLastInteraction;
 
+    @SuppressWarnings("SameParameterValue")
     public Debounce(long delay) {
         this.delay = delay;
     }
