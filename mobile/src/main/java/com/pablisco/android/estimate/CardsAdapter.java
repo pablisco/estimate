@@ -50,7 +50,7 @@ class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.ViewHolder> {
             Activity activity = findActivityFor(view);
             Intent intent = new Intent(activity, ResultActivity.class);
             intent.putExtra(ResultActivity.EXTRA_ESTIMATION, cardText);
-            activity.startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(activity, null).toBundle());
+            activity.startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle());
         }
 
         void setCardText(CharSequence cardText) {

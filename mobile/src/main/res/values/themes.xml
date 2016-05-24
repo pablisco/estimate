@@ -18,6 +18,8 @@
     <style name="AppTheme.NoToolbar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/main_background</item>
+        <item name="colorPrimaryDark">#26732a</item>
     </style>
 
 </resources>

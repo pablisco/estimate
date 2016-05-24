@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Estimate</string>
-    <string name="tap_to_reveal">Tap to reveal</string>
+    <string name="tap_to_reveal">Tap or shake to reveal</string>
 
 </resources>

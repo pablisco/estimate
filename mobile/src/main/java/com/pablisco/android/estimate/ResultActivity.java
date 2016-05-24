@@ -2,6 +2,7 @@ package com.pablisco.android.estimate;
 
 import android.animation.Animator;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
@@ -55,7 +56,7 @@ public class ResultActivity extends AppCompatActivity {
             fullRevealAnimationFor(estimationResult).start();
             revealed = true;
         } else {
-            finish();
+            ActivityCompat.finishAfterTransition(this);
         }
     }
 
