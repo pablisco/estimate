@@ -45,7 +45,7 @@ class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.ViewHolder> {
         void onCardSelected(View view) {
             Context context = view.getContext();
             Intent intent = new Intent(context, ResultActivity.class);
-            intent.putExtra(ResultActivity.KEY_ESTIMATION, cardText);
+            intent.putExtra(ResultActivity.EXTRA_ESTIMATION, cardText);
             context.startActivity(intent);
         }
 
