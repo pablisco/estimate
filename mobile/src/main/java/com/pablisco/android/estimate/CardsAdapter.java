@@ -8,11 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.ViewHolder> {
+class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.ViewHolder> {
 
     private final CharSequence[] items;
 
-    public CardsAdapter(CharSequence[] items) {
+    CardsAdapter(CharSequence[] items) {
         this.items = items;
     }
 
@@ -32,23 +32,24 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.ViewHolder> 
         return items.length;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         private CharSequence cardText;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this::onCardSelected);
         }
 
         @SuppressWarnings({"UnusedParameters", "unused"})
-        public void onCardSelected(View view) {
+        void onCardSelected(View view) {
             Context context = view.getContext();
             Intent intent = new Intent(context, ResultActivity.class);
             intent.putExtra(ResultActivity.KEY_ESTIMATION, cardText);
             context.startActivity(intent);
         }
 
-        public void setCardText(CharSequence cardText) {
+        void setCardText(CharSequence cardText) {
             this.cardText = cardText;
             ((TextView)itemView).setText(cardText);
         }

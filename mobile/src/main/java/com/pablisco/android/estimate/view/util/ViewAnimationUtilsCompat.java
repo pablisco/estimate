@@ -33,7 +33,7 @@ public class ViewAnimationUtilsCompat {
 
     }
 
-    static class ViewAnimationUtilCompatLollipop extends ViewAnimationUtilCompatBase {
+    private static class ViewAnimationUtilCompatLollipop extends ViewAnimationUtilCompatBase {
 
         @TargetApi(Build.VERSION_CODES.LOLLIPOP)
         public Animator createCircularReveal(View view, int centerX, int centerY, float startRadius, float endRadius) {

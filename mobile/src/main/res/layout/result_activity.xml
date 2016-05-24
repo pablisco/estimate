@@ -24,9 +24,10 @@
             android:id="@+id/estimation_result"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@android:color/white"
             android:gravity="center"
             android:textSize="150sp"
-            android:visibility="gone"
+            android:visibility="invisible"
             />
 
     </FrameLayout>

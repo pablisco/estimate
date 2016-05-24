@@ -2,6 +2,10 @@
 <resources>
 
     <style name="AppTheme" parent="BaseAppTheme">
+        <item name="colorPrimary">#795548</item>
+        <item name="colorPrimaryDark">#5D4037</item>
+        <item name="colorAccent">#FF5252</item>
+        <item name="android:windowBackground">@color/main_background</item>
     </style>
 
     <style name="BaseAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">

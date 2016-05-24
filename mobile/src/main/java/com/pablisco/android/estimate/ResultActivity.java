@@ -1,8 +1,6 @@
 package com.pablisco.android.estimate;
 
 import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,7 +12,7 @@ import com.pablisco.android.sensor.ShakeDetector;
 public class ResultActivity extends AppCompatActivity {
 
     private static final String TAG = ResultActivity.class.getSimpleName();
-    public static final String KEY_ESTIMATION = TAG + "#KEY_ESTIMATION";
+    static final String KEY_ESTIMATION = TAG + "#KEY_ESTIMATION";
     private ShakeDetector shakeDetector;
     private View revealMessage;
     private TextView estimationResult;
@@ -43,17 +41,14 @@ public class ResultActivity extends AppCompatActivity {
     @SuppressWarnings("UnusedParameters")
     public void reveal(View view) {
         if (!revealed) {
-            new AnimatorSet()
-                    .play(revealViewVisible(estimationResult))
-                    .with(revealViewGone(revealMessage));
-
+            revealAnimationFor(estimationResult).start();
             revealed = true;
         } else {
             finish();
         }
     }
 
-    private Animator revealViewVisible(View view) {
+    private Animator revealAnimationFor(View view) {
         int cx = view.getWidth() / 2;
         int cy = view.getHeight() / 2;
 
@@ -62,25 +57,5 @@ public class ResultActivity extends AppCompatActivity {
 
         return ViewAnimationUtilsCompat.createCircularReveal(view, cx, cy, 0, finalRadius);
     }
-
-    private Animator revealViewGone(View view) {
-        int cx = view.getWidth() / 2;
-        int cy = view.getHeight() / 2;
-
-        float finalRadius = (float) Math.hypot(cx, cy);
-
-        view.setVisibility(View.VISIBLE);
-
-        Animator circularReveal = ViewAnimationUtilsCompat.createCircularReveal(view, cx, cy, 0, finalRadius);
-        circularReveal.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                super.onAnimationEnd(animation);
-                view.setVisibility(View.GONE);
-            }
-        });
-        return circularReveal;
-    }
-
 
 }
