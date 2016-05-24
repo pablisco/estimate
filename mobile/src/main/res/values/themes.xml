@@ -8,8 +8,16 @@
         <item name="android:windowBackground">@color/main_background</item>
     </style>
 
+    <style name="AppTheme.Home">
+    </style>
+
     <style name="BaseAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="buttonStyle">@style/CardButtonStyle</item>
+    </style>
+
+    <style name="AppTheme.NoToolbar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
 
 </resources>

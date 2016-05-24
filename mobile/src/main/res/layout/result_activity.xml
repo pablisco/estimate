@@ -4,12 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.pablisco.android.estimate.ResultActivity">
+    tools:context="com.pablisco.android.estimate.ResultActivity"
+    android:onClick="reveal">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:onClick="reveal">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/reveal_message"
@@ -20,14 +20,17 @@
             android:visibility="visible"
             />
 
-        <TextView
+        <com.pablisco.android.estimate.GoldenCardView
             android:id="@+id/estimation_result"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/white"
-            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:textSize="150sp"
+            android:padding="0dp"
+            android:transitionName="target"
             android:visibility="invisible"
+            android:clickable="false"
+            android:theme="@style/CardButtonStyle"
             />
 
     </FrameLayout>

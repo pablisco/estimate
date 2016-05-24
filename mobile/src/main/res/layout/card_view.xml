@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:padding="0dp"
+    android:transitionName="source"
     android:textSize="@dimen/card_font_size"
     android:theme="@style/CardButtonStyle"
     />
