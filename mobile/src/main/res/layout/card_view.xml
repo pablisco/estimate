@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.pablisco.android.estimate.GoldenCardView
+<com.pablisco.android.estimate.EstimationCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_view"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:padding="0dp"
-    android:transitionName="source"
-    android:textSize="@dimen/card_font_size"
-    android:theme="@style/CardButtonStyle"
+    android:layout_margin="5dp"
+    android:transitionName="target"
     />

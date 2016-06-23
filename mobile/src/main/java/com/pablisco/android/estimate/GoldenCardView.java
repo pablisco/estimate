@@ -1,10 +1,10 @@
 package com.pablisco.android.estimate;
 
 import android.content.Context;
-import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
 
-public class GoldenCardView extends AppCompatButton {
+public class GoldenCardView extends CardView {
 
     public GoldenCardView(Context context) {
         super(context);

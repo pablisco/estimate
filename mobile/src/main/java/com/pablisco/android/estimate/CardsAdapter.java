@@ -4,13 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.ViewHolder> {
 
@@ -39,10 +39,12 @@ class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.ViewHolder> {
     class ViewHolder extends RecyclerView.ViewHolder {
 
         private CharSequence cardText;
+        private EstimationCardView cardView;
 
         ViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this::onCardSelected);
+            cardView = (EstimationCardView) itemView.findViewById(R.id.card_view);
         }
 
         @SuppressWarnings({"UnusedParameters", "unused"})
@@ -50,12 +52,14 @@ class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.ViewHolder> {
             Activity activity = findActivityFor(view);
             Intent intent = new Intent(activity, ResultActivity.class);
             intent.putExtra(ResultActivity.EXTRA_ESTIMATION, cardText);
-            activity.startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle());
+            Bundle options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, view, "target")
+                    .toBundle();
+            activity.startActivity(intent, options);
         }
 
         void setCardText(CharSequence cardText) {
             this.cardText = cardText;
-            ((TextView)itemView).setText(cardText);
+            cardView.setText(cardText);
         }
     }
 

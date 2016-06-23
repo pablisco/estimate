@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:autofit="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="reveal"
     tools:context="com.pablisco.android.estimate.ResultActivity"
-    android:onClick="reveal">
+    android:clipChildren="false">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:clipChildren="false">
 
         <TextView
             android:id="@+id/reveal_message"
@@ -20,17 +23,13 @@
             android:visibility="visible"
             />
 
-        <com.pablisco.android.estimate.GoldenCardView
+        <com.pablisco.android.estimate.EstimationCardView
             android:id="@+id/estimation_result"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:textSize="150sp"
-            android:padding="0dp"
-            android:transitionName="target"
-            android:visibility="invisible"
             android:clickable="false"
-            android:theme="@style/CardButtonStyle"
+            android:transitionName="target"
             />
 
     </FrameLayout>

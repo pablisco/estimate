@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
 
 import com.pablisco.android.estimate.view.util.ViewAnimationUtilsCompat;
 import com.pablisco.android.sensor.ShakeDetector;
@@ -18,7 +17,7 @@ public class ResultActivity extends AppCompatActivity {
     static final String EXTRA_ESTIMATION = TAG + "#EXTRA_ESTIMATION";
     private static final String STATE_REVEALED = TAG + "#STATE_REVEALED";
     private ShakeDetector shakeDetector;
-    private TextView estimationResult;
+    private EstimationCardView estimationResult;
     private boolean revealed = false;
 
     public ResultActivity() {
@@ -45,9 +44,10 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.result_activity);
-        estimationResult = (TextView) findViewById(R.id.estimation_result);
+        estimationResult = (EstimationCardView) findViewById(R.id.estimation_result);
         CharSequence estimation = getIntent().getCharSequenceExtra(EXTRA_ESTIMATION);
         estimationResult.setText(estimation);
+        estimationResult.setSelectedSide(EstimationCardView.Side.BACK);
     }
 
     @SuppressWarnings("UnusedParameters")

@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="AppTheme.Home">
+    <style name="BaseAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowSharedElementsUseOverlay">false</item>
         <item name="android:windowExitTransition">@transition/deck_grid_exit</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
 </resources>

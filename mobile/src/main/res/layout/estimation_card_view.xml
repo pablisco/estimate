@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.pablisco.android.estimate.GoldenCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="8dp"
+        android:id="@+id/back_view">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_red_dark"
+            />
+
+    </com.pablisco.android.estimate.GoldenCardView>
+
+    <com.pablisco.android.estimate.GoldenCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="8dp"
+        android:id="@+id/front_view" >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_green_dark"
+            />
+
+        <TextView
+            android:id="@+id/front_card_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center" />
+
+    </com.pablisco.android.estimate.GoldenCardView>
+
+</merge>

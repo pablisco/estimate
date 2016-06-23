@@ -5,4 +5,8 @@
 
     <integer name="deck_column_count">4</integer>
 
+    <!-- EstimationCardView -->
+    <integer name="card_flip_time_full">600</integer>
+    <integer name="card_flip_time_half">300</integer>
+
 </resources>
