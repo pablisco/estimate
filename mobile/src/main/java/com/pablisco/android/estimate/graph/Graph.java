@@ -2,29 +2,34 @@ package com.pablisco.android.estimate.graph;
 
 import android.app.Application;
 
-public class Graph {
+public class Graph implements ApplicationSource {
 
-    private static Graph GRAPH;
+    private static final Graph GRAPH = new Graph();
     private SensorModule sensorModule;
+    private ApplicationSource applicationSource;
 
-    Graph(Application application) {
-        sensorModule = new SensorModule(application);
+    private Graph() {
+        sensorModule = new SensorModule(this);
     }
 
     public static Graph graph() {
-        if (GRAPH == null) {
-            throw new IllegalStateException("onCreate not called from Application");
-        } else {
-            return GRAPH;
-        }
+        return GRAPH;
     }
 
-    public static void onCreate(Application application) {
-        GRAPH = new Graph(application);
+    public void registerApplication(ApplicationSource applicationSource) {
+        this.applicationSource = applicationSource;
     }
 
     public SensorModule sensorModule() {
         return sensorModule;
+    }
+
+    @Override
+    public Application findApplication() {
+        if (applicationSource == null) {
+            throw new IllegalStateException("Application source not registered");
+        }
+        return applicationSource.findApplication();
     }
 
 }

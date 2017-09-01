@@ -1,1 +1,1 @@
-include ':mobile', ':test-utils', ':common', ':android-test-spy'
+include ':mobile', ':common', ':android-test-spy'

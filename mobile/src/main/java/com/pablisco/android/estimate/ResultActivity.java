@@ -4,9 +4,9 @@ import android.animation.Animator;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.widget.TextView;
 
-import com.pablisco.android.estimate.view.util.ViewAnimationUtilsCompat;
 import com.pablisco.android.sensor.ShakeDetector;
 
 import static com.pablisco.android.estimate.graph.Graph.graph;
@@ -81,7 +81,7 @@ public class ResultActivity extends AppCompatActivity {
         float finalRadius = (float) Math.hypot(cx, cy);
         view.setVisibility(View.VISIBLE);
 
-        return ViewAnimationUtilsCompat.createCircularReveal(view, cx, cy, 0, finalRadius);
+        return ViewAnimationUtils.createCircularReveal(view, cx, cy, 0, finalRadius);
     }
 
 }

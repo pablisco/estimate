@@ -10,16 +10,19 @@ import com.pablisco.common.Debounce;
 public class SensorModule {
 
     private static final int SENSOR_DELAY = 100;
-    private Application application;
+    private ApplicationSource applicationSource;
 
-    SensorModule(Application application) {
-        this.application = application;
+    SensorModule(ApplicationSource applicationSource) {
+        this.applicationSource = applicationSource;
     }
 
     public ShakeDetector shakeDetector() {
-        SensorManager sensorManager = (SensorManager) application.getSystemService(Context.SENSOR_SERVICE);
+        SensorManager sensorManager = (SensorManager) application().getSystemService(Context.SENSOR_SERVICE);
         return new ShakeDetector(sensorManager, new Debounce(SENSOR_DELAY));
     }
 
+    private Application application() {
+        return applicationSource.findApplication();
+    }
 
 }
