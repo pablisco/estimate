@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.pablisco.android.estimate.ResultActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="reveal">
+
+        <TextView
+            android:id="@+id/reveal_message"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/tap_to_reveal"
+            android:visibility="visible"
+            />
+
+        <TextView
+            android:id="@+id/estimation_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:textSize="150sp"
+            android:visibility="invisible"
+            />
+
+    </FrameLayout>
+
+</android.support.design.widget.CoordinatorLayout>

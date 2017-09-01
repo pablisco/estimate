@@ -1,25 +1,19 @@
 package com.pablisco.android.estimate;
 
 import android.content.Context;
-import android.databinding.DataBindingUtil;
-import android.support.annotation.ArrayRes;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-import com.pablisco.android.estimate.databinding.CardViewBinding;
-
-public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.ViewHolder> {
+class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.ViewHolder> {
 
     private final CharSequence[] items;
 
-    public CardsAdapter(CharSequence[] items) {
+    CardsAdapter(CharSequence[] items) {
         this.items = items;
-    }
-
-    public CardsAdapter(Context context, @ArrayRes int itemArray) {
-        this(context.getResources().getTextArray(itemArray));
     }
 
     @Override
@@ -30,7 +24,7 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.getDataBinding().setCardText(items[position]);
+        holder.setCardText(items[position]);
     }
 
     @Override
@@ -38,17 +32,26 @@ public class CardsAdapter extends RecyclerView.Adapter<CardsAdapter.ViewHolder> 
         return items.length;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
-        private CardViewBinding dataBinding;
+        private CharSequence cardText;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
-            dataBinding = DataBindingUtil.bind(itemView);
+            itemView.setOnClickListener(this::onCardSelected);
         }
 
-        public CardViewBinding getDataBinding() {
-            return dataBinding;
+        @SuppressWarnings({"UnusedParameters", "unused"})
+        void onCardSelected(View view) {
+            Context context = view.getContext();
+            Intent intent = new Intent(context, ResultActivity.class);
+            intent.putExtra(ResultActivity.EXTRA_ESTIMATION, cardText);
+            context.startActivity(intent);
+        }
+
+        void setCardText(CharSequence cardText) {
+            this.cardText = cardText;
+            ((TextView)itemView).setText(cardText);
         }
     }
 }

@@ -1,23 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
+<com.pablisco.android.estimate.GoldenCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <data>
-
-        <variable
-            name="cardText"
-            type="java.lang.CharSequence"/>
-    </data>
-
-    <com.pablisco.android.estimate.GoldenCardView
-        android:theme="@style/CardButtonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="0dp"
-        android:layout_gravity="center"
-        android:text="@{cardText}"
-        android:textSize="@dimen/card_font_size"
-        />
-
-</layout>
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:padding="0dp"
+    android:textSize="@dimen/card_font_size"
+    android:theme="@style/CardButtonStyle"
+    />
